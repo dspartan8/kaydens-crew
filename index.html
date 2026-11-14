@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1a6b6a" />
+    <title>Kayden’s Crew — Music Mixer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true"></div>
+
+    <section id="hero" class="hero">
+      <div class="hero-stage" aria-hidden="true">
+        <div class="hero-blob b1"></div>
+        <div class="hero-blob b2"></div>
+        <div class="hero-blob b3"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="hero-kicker">A music toy just for him</p>
+        <h1 class="brand">Kayden’s<br />Crew</h1>
+        <p class="hero-sub">
+          Drag weird, spacey, animal, and friend sounds onto the stage. Mix your own loop.
+        </p>
+        <div class="hero-cta">
+          <button type="button" id="start-btn" class="btn primary">Start mixing</button>
+        </div>
+      </div>
+    </section>
+
+    <main id="app" class="app hidden" hidden>
+      <header class="top">
+        <h1 class="brand-mini">Kayden’s Crew</h1>
+        <div class="top-actions">
+          <button type="button" id="rename-btn" class="btn ghost" title="Rename friend &amp; pet">
+            Names
+          </button>
+          <button type="button" id="reset-btn" class="btn ghost">Clear stage</button>
+        </div>
+      </header>
+
+      <section class="stage-wrap" aria-label="Mixing stage">
+        <div class="stage" id="stage">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <div class="slots" id="slots"></div>
+        </div>
+        <p class="hint" id="hint">Drag a sound onto an empty spot</p>
+      </section>
+
+      <section class="tray-wrap" aria-label="Sound tray">
+        <div class="tray-label">Sounds</div>
+        <div class="tray" id="tray"></div>
+      </section>
+    </main>
+
+    <dialog id="names-dialog" class="dialog">
+      <form method="dialog" id="names-form">
+        <h2>Friend &amp; pet names</h2>
+        <p>Kayden can name these after real people and pets.</p>
+        <label>
+          Friend sound
+          <input id="friend-name" name="friend" maxlength="18" autocomplete="off" />
+        </label>
+        <label>
+          Pet sound
+          <input id="pet-name" name="pet" maxlength="18" autocomplete="off" />
+        </label>
+        <div class="dialog-actions">
+          <button type="submit" class="btn primary" value="save">Save</button>
+          <button type="submit" class="btn ghost" value="cancel">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
