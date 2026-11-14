@@ -362,42 +362,47 @@ function yipLoop(data, sr) {
   }
 }
 
-/* —— Faces (inline SVG) —— */
+/* —— Full-body characters (Incredibox-style silhouettes, original designs) —— */
 
 function faceSvg(face) {
-  const common = `class="face-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"`;
+  const common = `class="char-svg" viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg"`;
+  const legs = (c = "#1c2430") =>
+    `<rect x="28" y="78" width="10" height="22" rx="4" fill="${c}"/><rect x="42" y="78" width="10" height="22" rx="4" fill="${c}"/>`;
+  const eyes = (lx = 30, rx = 50, y = 28, s = 5) =>
+    `<circle cx="${lx}" cy="${y}" r="${s}" fill="#fff"/><circle cx="${rx}" cy="${y}" r="${s}" fill="#fff"/><circle cx="${lx}" cy="${y}" r="${s * 0.45}" fill="#1c2430"/><circle cx="${rx}" cy="${y}" r="${s * 0.45}" fill="#1c2430"/>`;
+
   switch (face) {
     case "frog":
-      return `<svg ${common}><ellipse cx="32" cy="36" rx="22" ry="18" fill="#5fbf6a"/><circle cx="22" cy="24" r="8" fill="#fff"/><circle cx="42" cy="24" r="8" fill="#fff"/><circle cx="22" cy="24" r="3.5" fill="#143536"/><circle cx="42" cy="24" r="3.5" fill="#143536"/><path d="M24 42c4 4 12 4 16 0" stroke="#143536" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`;
+      return `<svg ${common}><ellipse cx="40" cy="58" rx="22" ry="26" fill="#5fbf6a"/><circle cx="24" cy="26" r="12" fill="#5fbf6a"/><circle cx="56" cy="26" r="12" fill="#5fbf6a"/><circle cx="24" cy="24" r="7" fill="#fff"/><circle cx="56" cy="24" r="7" fill="#fff"/><circle cx="24" cy="24" r="3" fill="#1c2430"/><circle cx="56" cy="24" r="3" fill="#1c2430"/><ellipse cx="40" cy="42" rx="8" ry="5" fill="#3d9a4a"/><path d="M30 50c6 8 14 8 20 0" stroke="#1c2430" stroke-width="2.5" fill="none" stroke-linecap="round"/>${legs("#3d9a4a")}</svg>`;
     case "planet":
-      return `<svg ${common}><circle cx="32" cy="32" r="18" fill="#5ec4c0"/><ellipse cx="32" cy="32" rx="26" ry="7" fill="none" stroke="#e8b84a" stroke-width="3"/><circle cx="26" cy="28" r="4" fill="#fff8e8" opacity=".7"/></svg>`;
+      return `<svg ${common}><ellipse cx="40" cy="48" rx="28" ry="8" fill="none" stroke="#ffc857" stroke-width="4"/><circle cx="40" cy="48" r="22" fill="#2cb5a8"/><circle cx="32" cy="40" r="5" fill="#fff8ec" opacity=".75"/>${eyes(32, 48, 46, 4)}<path d="M32 58c4 4 12 4 16 0" stroke="#1c2430" stroke-width="2" fill="none"/>${legs("#1f8f85")}</svg>`;
     case "paw":
-      return `<svg ${common}><circle cx="32" cy="38" r="12" fill="#c48a5a"/><circle cx="18" cy="24" r="6" fill="#c48a5a"/><circle cx="28" cy="18" r="6" fill="#c48a5a"/><circle cx="40" cy="18" r="6" fill="#c48a5a"/><circle cx="48" cy="26" r="6" fill="#c48a5a"/></svg>`;
+      return `<svg ${common}><ellipse cx="40" cy="60" rx="20" ry="24" fill="#c48a5a"/><circle cx="40" cy="30" r="16" fill="#c48a5a"/><circle cx="22" cy="18" r="7" fill="#c48a5a"/><circle cx="58" cy="18" r="7" fill="#c48a5a"/>${eyes(33, 47, 28, 4)}<ellipse cx="40" cy="38" rx="5" ry="3.5" fill="#e36b4a"/>${legs("#9a6a42")}</svg>`;
     case "comet":
-      return `<svg ${common}><path d="M10 20c12 2 22 8 30 20" stroke="#fff8e8" stroke-width="6" stroke-linecap="round" opacity=".7"/><circle cx="44" cy="42" r="10" fill="#8b7ec8"/><circle cx="40" cy="38" r="3" fill="#fff8e8"/></svg>`;
+      return `<svg ${common}><path d="M8 20c18 4 28 18 36 40" stroke="#fff8ec" stroke-width="8" stroke-linecap="round" opacity=".55"/><circle cx="48" cy="52" r="20" fill="#7b6cff"/>${eyes(42, 56, 48, 4.5)}<circle cx="42" cy="46" r="1.5" fill="#fff"/><path d="M42 60c4 4 10 4 14 0" stroke="#1c2430" stroke-width="2" fill="none"/>${legs("#5a4fd0")}</svg>`;
     case "star":
-      return `<svg ${common}><polygon points="32,8 38,24 56,24 42,36 47,54 32,44 17,54 22,36 8,24 26,24" fill="#fff1a8" stroke="#e8b84a" stroke-width="2"/></svg>`;
+      return `<svg ${common}><polygon points="40,8 46,28 68,28 50,42 56,64 40,50 24,64 30,42 12,28 34,28" fill="#ffc857"/><circle cx="40" cy="38" r="10" fill="#ffe9a8"/>${eyes(35, 45, 37, 3)}<path d="M35 44c2 2 6 2 8 0" stroke="#1c2430" stroke-width="1.8" fill="none"/>${legs("#e0a830")}</svg>`;
     case "blob":
-      return `<svg ${common}><path d="M18 40c-4-10 2-24 14-26 14-2 22 10 20 22-2 12-12 18-22 16-8-1-10-4-12-12z" fill="#9b8fd4"/><circle cx="28" cy="34" r="4" fill="#143536"/><circle cx="42" cy="32" r="5" fill="#143536"/><circle cx="27" cy="33" r="1.4" fill="#fff"/><circle cx="41" cy="31" r="1.6" fill="#fff"/></svg>`;
+      return `<svg ${common}><path d="M22 70c-8-18 0-42 18-46 20-4 30 14 28 34-2 18-14 28-28 26-10-1-14-4-18-14z" fill="#9b8fd4"/><circle cx="34" cy="40" r="7" fill="#fff"/><circle cx="52" cy="36" r="9" fill="#fff"/><circle cx="35" cy="41" r="3" fill="#1c2430"/><circle cx="54" cy="38" r="4" fill="#1c2430"/><path d="M36 56c4 5 12 5 16 0" stroke="#1c2430" stroke-width="2.2" fill="none"/>${legs("#6f63b0")}</svg>`;
     case "saturn":
-      return `<svg ${common}><circle cx="32" cy="30" r="14" fill="#e8b84a"/><ellipse cx="32" cy="30" rx="24" ry="6" fill="none" stroke="#143536" stroke-width="2.5"/><circle cx="28" cy="26" r="2.5" fill="#143536"/></svg>`;
+      return `<svg ${common}><ellipse cx="40" cy="50" rx="30" ry="7" fill="none" stroke="#1c2430" stroke-width="3"/><circle cx="40" cy="48" r="20" fill="#ffc857"/>${eyes(33, 47, 44, 4)}<circle cx="33" cy="42" r="1.3" fill="#fff"/><path d="M33 56c4 3 10 3 14 0" stroke="#1c2430" stroke-width="2" fill="none"/>${legs("#d4a63a")}</svg>`;
     case "bird":
-      return `<svg ${common}><ellipse cx="32" cy="34" rx="16" ry="14" fill="#7ec8c4"/><circle cx="40" cy="28" r="8" fill="#7ec8c4"/><circle cx="43" cy="26" r="2.5" fill="#143536"/><path d="M48 28l10 2-10 4z" fill="#e36b4a"/></svg>`;
+      return `<svg ${common}><ellipse cx="40" cy="58" rx="18" ry="22" fill="#5ec4c0"/><circle cx="40" cy="30" r="16" fill="#5ec4c0"/><path d="M54 30l14 4-14 6z" fill="#ff6b4a"/>${eyes(34, 46, 28, 4)}<path d="M18 58c-10 2-14 12-8 16 8-2 12-8 8-16z" fill="#3da8a4"/>${legs("#2f8f8b")}</svg>`;
     case "googly":
-      return `<svg ${common}><rect x="14" y="18" width="36" height="32" rx="14" fill="#f0d78c"/><circle cx="26" cy="32" r="8" fill="#fff"/><circle cx="42" cy="30" r="10" fill="#fff"/><circle cx="27" cy="33" r="3" fill="#143536"/><circle cx="44" cy="32" r="4" fill="#143536"/><path d="M26 46h14" stroke="#143536" stroke-width="2" stroke-linecap="round"/></svg>`;
+      return `<svg ${common}><rect x="22" y="34" width="36" height="46" rx="16" fill="#f0d78c"/><circle cx="40" cy="28" r="16" fill="#f0d78c"/><circle cx="30" cy="26" r="9" fill="#fff"/><circle cx="52" cy="24" r="11" fill="#fff"/><circle cx="31" cy="28" r="3.5" fill="#1c2430"/><circle cx="54" cy="26" r="4.5" fill="#1c2430"/><path d="M32 40h16" stroke="#1c2430" stroke-width="2.5" stroke-linecap="round"/>${legs("#d4b86a")}</svg>`;
     case "spook":
-      return `<svg ${common}><path d="M16 28c0-12 8-18 16-18s16 6 16 18v22l-5-4-5 4-6-4-6 4-5-4-5 4z" fill="#dfe3f0"/><circle cx="26" cy="30" r="4" fill="#143536"/><circle cx="40" cy="30" r="4" fill="#143536"/><path d="M28 40c2 3 6 3 8 0" stroke="#143536" stroke-width="2" fill="none"/></svg>`;
+      return `<svg ${common}><path d="M20 40c0-14 10-22 20-22s20 8 20 22v42l-6-6-7 6-7-6-7 6-7-6-6 6z" fill="#e8ecf5"/><circle cx="32" cy="38" r="5" fill="#1c2430"/><circle cx="48" cy="38" r="5" fill="#1c2430"/><path d="M34 52c3 4 9 4 12 0" stroke="#1c2430" stroke-width="2.2" fill="none"/><ellipse cx="40" cy="20" rx="10" ry="4" fill="#9b8fd4" opacity=".5"/></svg>`;
     case "buddy":
-      return `<svg ${common}><circle cx="32" cy="28" r="16" fill="#f3c7a4"/><circle cx="26" cy="26" r="2.5" fill="#143536"/><circle cx="38" cy="26" r="2.5" fill="#143536"/><path d="M26 34c3 4 9 4 12 0" stroke="#143536" stroke-width="2" fill="none"/><rect x="18" y="44" width="28" height="12" rx="6" fill="#2a8a84"/></svg>`;
+      return `<svg ${common}><rect x="24" y="48" width="32" height="34" rx="10" fill="#2cb5a8"/><circle cx="40" cy="30" r="18" fill="#f3c7a4"/>${eyes(33, 47, 28, 4)}<path d="M32 38c4 5 12 5 16 0" stroke="#1c2430" stroke-width="2.2" fill="none"/>${legs("#1f8f85")}</svg>`;
     case "critter":
-      return `<svg ${common}><ellipse cx="32" cy="36" rx="18" ry="14" fill="#c48a5a"/><circle cx="22" cy="20" r="7" fill="#c48a5a"/><circle cx="42" cy="20" r="7" fill="#c48a5a"/><circle cx="26" cy="34" r="2.5" fill="#143536"/><circle cx="38" cy="34" r="2.5" fill="#143536"/><ellipse cx="32" cy="40" rx="4" ry="3" fill="#e36b4a"/></svg>`;
+      return `<svg ${common}><ellipse cx="40" cy="60" rx="20" ry="22" fill="#c48a5a"/><circle cx="40" cy="32" r="18" fill="#c48a5a"/><circle cx="24" cy="16" r="8" fill="#c48a5a"/><circle cx="56" cy="16" r="8" fill="#c48a5a"/>${eyes(33, 47, 30, 4)}<ellipse cx="40" cy="40" rx="5" ry="3.5" fill="#ff6b4a"/>${legs("#9a6a42")}</svg>`;
     default:
-      return `<svg ${common}><circle cx="32" cy="32" r="18" fill="#fff8e8"/></svg>`;
+      return emptyFigure();
   }
 }
 
 function emptyFigure() {
-  return `<svg class="face-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" opacity="0.85"><ellipse cx="32" cy="40" rx="14" ry="10" fill="#155652"/><circle cx="32" cy="26" r="12" fill="#2a8a84"/><circle cx="28" cy="24" r="2" fill="#fff8e8" opacity=".5"/><circle cx="36" cy="24" r="2" fill="#fff8e8" opacity=".5"/></svg>`;
+  return `<svg class="char-svg" viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="62" rx="18" ry="24" fill="#b8c0c8"/><circle cx="40" cy="30" r="16" fill="#c5ccd3"/><circle cx="33" cy="28" r="2.2" fill="#8a939c"/><circle cx="47" cy="28" r="2.2" fill="#8a939c"/><path d="M34 38c3 3 9 3 12 0" stroke="#8a939c" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="30" y="84" width="8" height="18" rx="3" fill="#9aa3ac"/><rect x="42" y="84" width="8" height="18" rx="3" fill="#9aa3ac"/></svg>`;
 }
 
 /* —— UI —— */
@@ -428,10 +433,9 @@ function renderSlots() {
     el.className = `slot ${sound ? "filled" : "empty"}`;
     el.dataset.slot = String(slot.index);
     el.innerHTML = `
-      <button type="button" class="slot-remove" aria-label="Remove sound" data-remove="${slot.index}">×</button>
+      <button type="button" class="slot-remove" aria-label="Remove character" data-remove="${slot.index}">×</button>
       <div class="slot-figure">${sound ? faceSvg(sound.face) : emptyFigure()}</div>
-      <div class="slot-base"></div>
-      <p class="slot-name">${sound ? soundLabel(sound) : "Open"}</p>
+      <p class="slot-name">${sound ? soundLabel(sound) : ""}</p>
     `;
     slotsEl.appendChild(el);
   }
@@ -474,7 +478,7 @@ function placeSound(slotIndex, soundId) {
   active.set(slotIndex, { soundId, stop: () => node.stop() });
   slots[slotIndex].soundId = soundId;
   renderSlots();
-  hintEl.textContent = "Nice. Stack more sounds — or tap × to clear one.";
+  hintEl.textContent = "Nice! Stack more characters — or tap × to clear one.";
   wireSlotRemoves();
 }
 
@@ -487,7 +491,7 @@ function wireSlotRemoves() {
       renderSlots();
       wireSlotRemoves();
       if (![...active.keys()].length) {
-        hintEl.textContent = "Drag a sound onto an empty spot";
+        hintEl.textContent = "Drag a character onto an empty body";
       }
     });
   });
@@ -497,7 +501,16 @@ function clearStage() {
   for (let i = 0; i < SLOT_COUNT; i++) clearSlot(i);
   renderSlots();
   wireSlotRemoves();
-  hintEl.textContent = "Drag a sound onto an empty spot";
+  hintEl.textContent = "Drag a character onto an empty body";
+}
+
+function renderHeroCrew() {
+  const crew = document.getElementById("hero-crew");
+  if (!crew) return;
+  const preview = ["frog", "planet", "blob", "spook", "buddy"];
+  crew.innerHTML = preview
+    .map((face) => `<div class="char">${faceSvg(face)}</div>`)
+    .join("");
 }
 
 /* Drag + drop (mouse + touch) */
@@ -601,6 +614,7 @@ namesForm.addEventListener("submit", (e) => {
   wireSlotRemoves();
 });
 
+renderHeroCrew();
 renderTray();
 renderSlots();
 wireSlotRemoves();

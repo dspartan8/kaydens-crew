@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#1a6b6a" />
+    <meta name="theme-color" content="#4fa86d" />
     <title>Kayden’s Crew — Music Mixer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,15 +18,13 @@
 
     <section id="hero" class="hero">
       <div class="hero-stage" aria-hidden="true">
-        <div class="hero-blob b1"></div>
-        <div class="hero-blob b2"></div>
-        <div class="hero-blob b3"></div>
+        <div class="hero-crew" id="hero-crew"></div>
       </div>
       <div class="hero-copy">
-        <p class="hero-kicker">A music toy just for him</p>
+        <p class="hero-kicker">Like Sprunki — but made for Kayden</p>
         <h1 class="brand">Kayden’s<br />Crew</h1>
         <p class="hero-sub">
-          Drag weird, spacey, animal, and friend sounds onto the stage. Mix your own loop.
+          Drag funny characters onto the stage. Stack their sounds. Mix your own beat.
         </p>
         <div class="hero-cta">
           <button type="button" id="start-btn" class="btn primary">Start mixing</button>
@@ -41,7 +39,7 @@
           <button type="button" id="rename-btn" class="btn ghost" title="Rename friend &amp; pet">
             Names
           </button>
-          <button type="button" id="reset-btn" class="btn ghost">Clear stage</button>
+          <button type="button" id="reset-btn" class="btn ghost">Clear</button>
         </div>
       </header>
 
@@ -50,11 +48,11 @@
           <div class="stage-glow" aria-hidden="true"></div>
           <div class="slots" id="slots"></div>
         </div>
-        <p class="hint" id="hint">Drag a sound onto an empty spot</p>
+        <p class="hint" id="hint">Drag a character onto an empty body</p>
       </section>
 
-      <section class="tray-wrap" aria-label="Sound tray">
-        <div class="tray-label">Sounds</div>
+      <section class="tray-wrap" aria-label="Character tray">
+        <div class="tray-label">Characters</div>
         <div class="tray" id="tray"></div>
       </section>
     </main>
@@ -64,11 +62,11 @@
         <h2>Friend &amp; pet names</h2>
         <p>Kayden can name these after real people and pets.</p>
         <label>
-          Friend sound
+          Friend
           <input id="friend-name" name="friend" maxlength="18" autocomplete="off" />
         </label>
         <label>
-          Pet sound
+          Pet
           <input id="pet-name" name="pet" maxlength="18" autocomplete="off" />
         </label>
         <div class="dialog-actions">
